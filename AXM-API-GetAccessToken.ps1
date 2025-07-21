@@ -101,7 +101,7 @@ try {
 
     # Read the raw private key from the .p8 file
     $privateKeyContent = Get-Content -Path $privateKeyPath -Raw
-    $privateKeyB64 = $privateKeyContent -replace "-----BEGIN PRIVATE KEY-----`n" -replace "`n-----END PRIVATE KEY-----" -replace "`r" -replace "`n"
+    $privateKeyB64 = $privateKeyContent -replace "-----BEGIN EC PRIVATE KEY-----`n" -replace "`n-----END EC PRIVATE KEY-----" -replace "`r" -replace "`n"
     $privateKeyBytes = [System.Convert]::FromBase64String($privateKeyB64)
 
     # Create an ECDsa object to perform the signing. The method depends on the PowerShell version.
